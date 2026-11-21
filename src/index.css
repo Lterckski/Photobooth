@@ -1,0 +1,86 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Archivo Black', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Space Grotesk', sans-serif;
+  /* KD.STUDIO palette (client, Nov 21). Primary: French Puce + Auburn. Secondary: Hunyadi Yellow, Police Blue, Vanilla. */
+  --color-puce: #540b0e;
+  --color-auburn: #9e2a2b;
+  --color-hunyadi: #e09f3e;
+  --color-police: #335c67;
+  --color-vanilla: #fff3b0;
+  --color-paper: #fdf8ef;
+  --color-ink: #3b0a0c;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: var(--color-vanilla);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.8) 22%, transparent 23%);
+  background-size: 64px 64px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  overscroll-behavior: none;
+}
+
+/* Only the print image is visible when printing. */
+#print-root {
+  display: none;
+}
+@media print {
+  body {
+    background: none;
+  }
+  #root {
+    display: none;
+  }
+  #print-root {
+    display: block;
+  }
+  #print-root img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+  }
+}
+
+@keyframes flash {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.flash {
+  animation: flash 450ms ease-out forwards;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.85;
+  }
+}
+.pop {
+  animation: pop 1s ease-out forwards;
+}
