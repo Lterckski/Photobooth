@@ -19,6 +19,10 @@ export interface Theme {
   photoBorder: string
   outline?: string // optional bold outline around boxes
   logoFilter?: string // CSS filter to help the logo stand out on the background
+  layout: 'pokemon' | 'standard' // which trading-card structure to use
+  cardPanel: string // inner panel of the trading card (standard layout)
+  cardInk: string // text colour on the trading card (standard layout)
+  cardRule: string // divider lines on the trading card (standard layout)
 }
 
 export const logoUrl = (id: string) => `/themes/${id}/logo.png`
@@ -26,6 +30,10 @@ export const logoUrl = (id: string) => `/themes/${id}/logo.png`
 export const themes: Theme[] = [
   {
     id: 'pokemon',
+    layout: 'pokemon',
+    cardPanel: '#fffdf6',
+    cardInk: '#1c1c1c',
+    cardRule: 'rgba(0,0,0,0.18)',
     name: 'Pokémon',
     tagline: 'Gotta print them all',
     cardTitle: 'TRAINER CARD',
@@ -44,6 +52,10 @@ export const themes: Theme[] = [
   },
   {
     id: 'cartoon-network',
+    layout: 'standard',
+    cardPanel: '#ffffff',
+    cardInk: '#111111',
+    cardRule: '#111111',
     name: 'Cartoon Network',
     tagline: 'Black, white and bold',
     cardTitle: 'TOON CARD',
@@ -64,6 +76,10 @@ export const themes: Theme[] = [
   },
   {
     id: 'nickelodeon',
+    layout: 'standard',
+    cardPanel: '#fff6ec',
+    cardInk: '#3a1d00',
+    cardRule: 'rgba(245,125,13,0.6)',
     name: 'Nickelodeon',
     tagline: 'Get slimed',
     cardTitle: 'MEMBER CARD',
@@ -82,6 +98,10 @@ export const themes: Theme[] = [
   },
   {
     id: 'red-horse',
+    layout: 'standard',
+    cardPanel: '#fff8e7',
+    cardInk: '#5a0410',
+    cardRule: 'rgba(212,175,55,0.8)',
     name: 'Red Horse',
     tagline: 'Extra strong barkada',
     cardTitle: 'BARKADA PASS',
