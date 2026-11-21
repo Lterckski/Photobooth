@@ -21,7 +21,7 @@ export function Shell({ children, step, totalSteps }: { children: ReactNode; ste
           </div>
         ) : null}
       </motion.header>
-      <main className="flex min-h-0 flex-1 flex-col items-center justify-center p-8">{children}</main>
+      <main className="flex min-h-0 flex-1 flex-col items-center justify-center-safe overflow-y-auto p-8">{children}</main>
     </div>
   )
 }
